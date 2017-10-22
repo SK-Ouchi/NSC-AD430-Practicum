@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CityTrax</string>
+    <string name="title_activity_home">Home</string>
+    <string name="title_activity_opportunities">opportunities</string>
+</resources>
