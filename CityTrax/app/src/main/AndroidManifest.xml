@@ -11,7 +11,16 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
         </activity>
-        <activity android:name=".GetStarted" />
+        <activity
+            android:name=".GetStarted"
+            android:label="Get Started"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>/>
+        </activity>
         <activity android:name=".Register" />
         <activity android:name=".VolunteerCreationPage" />
         <activity
@@ -23,11 +32,6 @@
             android:name=".opportunities"
             android:label="Opportunities"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
