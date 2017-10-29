@@ -16,6 +16,9 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+        saveButton = (Button) findViewById(R.id.buttonStart);
+        saveButton.setOnClickListener(Register.this);
     }
 
     @Override
@@ -24,7 +27,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             Intent intent = new Intent(this, Details.class);
             startActivity(intent);
         } catch (Exception e) {
-            Log.d(TAG, "Start Button Clicked");
+            Log.d(TAG, "Save Button Tapped!");
         }
     }
 }

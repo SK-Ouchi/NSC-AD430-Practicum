@@ -29,7 +29,7 @@ public class GetStarted extends AppCompatActivity implements View.OnClickListene
             Intent intent = new Intent(this, Details.class);
             startActivity(intent);
         } catch (Exception e) {
-            Log.d(TAG, "Start Button Clicked");
+            Log.d(TAG, "Start Button Tapped");
         }
     }
 }
