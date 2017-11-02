@@ -26,7 +26,7 @@ public class GetStarted extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v) {
         try {
-            Intent intent = new Intent(this, Details.class);
+            Intent intent = new Intent(this, Home.class);
             startActivity(intent);
         } catch (Exception e) {
             Log.d(TAG, "Start Button Tapped");

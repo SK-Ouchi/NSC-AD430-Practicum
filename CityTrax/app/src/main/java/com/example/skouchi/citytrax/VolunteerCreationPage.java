@@ -8,7 +8,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.EditText;
 
-import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class VolunteerCreationPage extends AppCompatActivity {
 
@@ -25,27 +27,60 @@ public class VolunteerCreationPage extends AppCompatActivity {
         date = (EditText) findViewById(R.id.date);
         hoursWorked = (EditText) findViewById(R.id.hoursWorked);
 
-
         //FAB Save
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabSave);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                JSONObject jsonObject = getDataInJSON();
+                saveDataToFile(jsonObject);
+                startActivity(new Intent(getApplicationContext(), Home.class));
                 Snackbar.make(view, "Information Saved Successfully", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                startActivity(new Intent(getApplicationContext(), Home.class));
-
             }
         });
 
         //FAB Home
-        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fabHome);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fabHome = (FloatingActionButton) findViewById(R.id.fabHome);
+        fabHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                startActivity(new Intent(getApplicationContext(), Home.class));
             }
         });
+    }
+
+    // Return data as JSON Object
+    private JSONObject getDataInJSON() {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("name", name.getText().toString());
+            jsonObject.put("orgName", orgName.getText().toString());
+            jsonObject.put("orgAddress", orgAddress.getText().toString());
+            jsonObject.put("date", date.getText().toString());
+            jsonObject.put("hoursWorked", hoursWorked.getText().toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return jsonObject;
+    }
+
+    // Save JSON data to local file
+    private void saveDataToFile(JSONObject jsonObject) {
+        JSONData jsonData = new JSONData();
+        JSONArray jsonArray = new JSONArray();
+        if (jsonData.getJSON(getApplicationContext()) != null) {
+            try {
+                jsonArray = new JSONArray(jsonData.getJSON(getApplicationContext()));
+                jsonArray.put(jsonObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else {
+            jsonArray.put(jsonObject);
+        }
+        JSONData appendedJSONData = new JSONData();
+        appendedJSONData.saveJSON(getApplicationContext(), jsonArray.toString());
     }
 
 }
