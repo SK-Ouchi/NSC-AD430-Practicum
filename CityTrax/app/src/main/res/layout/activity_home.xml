@@ -20,6 +20,32 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_home" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_home" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:tint="#ffffff"
+        app:backgroundTint="@android:color/holo_green_light"
+        app:fabSize="mini"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="right|bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/hoursWorked"
+        app:layout_constraintVertical_bias="0.351"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </android.support.design.widget.CoordinatorLayout>
