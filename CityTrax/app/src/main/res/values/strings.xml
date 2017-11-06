@@ -2,4 +2,9 @@
     <string name="app_name">CityTrax</string>
     <string name="title_activity_home">Home</string>
     <string name="title_activity_opportunities">opportunities</string>
+    <string name="date">Date</string>
+    <string name="org_name">Org Name</string>
+    <string name="hours_worked">Hours Worked</string>
+    <string name="list">List</string>
+    <string name="logo">logo</string>
 </resources>

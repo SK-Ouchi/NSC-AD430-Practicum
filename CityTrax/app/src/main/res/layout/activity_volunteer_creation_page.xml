@@ -7,24 +7,24 @@
     tools:context="com.example.skouchi.citytrax.VolunteerCreationPage">
 
     <EditText
-        android:id="@+id/orgName"
+        android:id="@+id/name"
         android:layout_width="300dp"
         android:layout_height="45dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="26dp"
         android:ems="10"
+        android:hint="Name"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
         app:layout_constraintVertical_bias="0.088" />
 
     <EditText
-        android:id="@+id/Organization"
+        android:id="@+id/orgName"
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
@@ -32,35 +32,35 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Organization"
         android:inputType="textPersonName"
-        android:text="Organization"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintVertical_bias="0.032" />
+
+    <EditText
+        android:id="@+id/orgAddress"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Address"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orgName"
-        app:layout_constraintVertical_bias="0.032" />
-
-    <EditText
-        android:id="@+id/Address"
-        android:layout_width="300dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Address"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Organization"
         app:layout_constraintVertical_bias="0.036" />
 
     <EditText
-        android:id="@+id/Date"
+        android:id="@+id/date"
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
@@ -68,17 +68,17 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="0dp"
         android:ems="10"
+        android:hint="Date"
         android:inputType="textPersonName"
-        android:text="Date"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Address"
+        app:layout_constraintTop_toBottomOf="@+id/orgAddress"
         app:layout_constraintVertical_bias="0.104" />
 
     <EditText
-        android:id="@+id/Hours"
+        android:id="@+id/hoursWorked"
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
@@ -86,12 +86,12 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
+        android:hint="Hours"
         android:inputType="textPersonName"
-        android:text="Hours"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Date"
+        app:layout_constraintTop_toBottomOf="@+id/date"
         app:layout_constraintVertical_bias="0.083" />
 
     <ImageView
@@ -124,9 +124,11 @@
         app:layout_constraintHorizontal_bias="0.896"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Hours"
+        app:layout_constraintTop_toBottomOf="@+id/hoursWorked"
         app:layout_constraintVertical_bias="0.351"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_menu_save"
+
+        />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabHome"
@@ -143,7 +145,7 @@
         app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Hours"
+        app:layout_constraintTop_toBottomOf="@+id/hoursWorked"
         app:layout_constraintVertical_bias="0.351"
         app:srcCompat="@drawable/homebutton" />
 </android.support.constraint.ConstraintLayout>
