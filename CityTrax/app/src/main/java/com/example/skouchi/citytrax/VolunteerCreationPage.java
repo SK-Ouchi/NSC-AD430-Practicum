@@ -23,7 +23,7 @@ public class VolunteerCreationPage extends AppCompatActivity {
 
         name = (EditText) findViewById(R.id.name);
         orgName = (EditText) findViewById(R.id.orgName);
-        orgAddress = (EditText) findViewById(R.id.orgAddress);
+        orgAddress = (EditText) findViewById(R.id.orgEmail);
         date = (EditText) findViewById(R.id.date);
         hoursWorked = (EditText) findViewById(R.id.hoursWorked);
 
