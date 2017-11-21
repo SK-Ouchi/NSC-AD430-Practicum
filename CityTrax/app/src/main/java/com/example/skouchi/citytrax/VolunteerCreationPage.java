@@ -1,20 +1,28 @@
 package com.example.skouchi.citytrax;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 public class VolunteerCreationPage extends AppCompatActivity {
 
     private EditText name, orgName, orgAddress, date, hoursWorked;
+    private DatePickerDialog.OnDateSetListener onDateSetListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +31,39 @@ public class VolunteerCreationPage extends AppCompatActivity {
 
         name = (EditText) findViewById(R.id.name);
         orgName = (EditText) findViewById(R.id.orgName);
-        orgAddress = (EditText) findViewById(R.id.orgAddress);
-        date = (EditText) findViewById(R.id.date);
+        orgAddress = (EditText) findViewById(R.id.orgEmail);
         hoursWorked = (EditText) findViewById(R.id.hoursWorked);
+
+        //Add calendar settings for date picker
+        date = (EditText) findViewById(R.id.date);
+        date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog
+                        (VolunteerCreationPage.this,
+                                android.R.style.Theme_Holo_Light_Dialog,
+                                onDateSetListener,
+                                year, month, day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+            }
+        });
+
+        onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                month = month +1;
+                String dateDisplay = month + "/" + day + "/" + year;
+                date.setText(dateDisplay);
+
+            }
+        };
 
         //FAB Save
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabSave);
@@ -45,7 +83,7 @@ public class VolunteerCreationPage extends AppCompatActivity {
         fabHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               startActivity(new Intent(getApplicationContext(), Home.class));
+                startActivity(new Intent(getApplicationContext(), Home.class));
             }
         });
     }

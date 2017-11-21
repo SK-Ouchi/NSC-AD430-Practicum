@@ -56,7 +56,7 @@ public class Home extends AppCompatActivity {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     String name = jsonArray.getJSONObject(i).get("name").toString();
                     String orgName = jsonArray.getJSONObject(i).get("orgName").toString();
-                    String orgAddress = jsonArray.getJSONObject(i).get("orgAddress").toString();
+                    String orgAddress = jsonArray.getJSONObject(i).get("orgEmail").toString();
                     String date = jsonArray.getJSONObject(i).get("date").toString();
                     String hoursWorked = jsonArray.getJSONObject(i).get("hoursWorked").toString();
                     volunteeredList.add(new VolunteeredDetail(name, orgName, orgAddress, date, hoursWorked));

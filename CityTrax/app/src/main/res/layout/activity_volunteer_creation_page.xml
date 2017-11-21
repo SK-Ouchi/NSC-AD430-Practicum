@@ -15,7 +15,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="26dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="Full Name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -32,7 +32,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Organization"
+        android:hint="Organization Name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
@@ -42,7 +42,7 @@
         app:layout_constraintVertical_bias="0.032" />
 
     <EditText
-        android:id="@+id/orgAddress"
+        android:id="@+id/orgEmail"
         android:layout_width="300dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
@@ -50,8 +50,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Address"
-        android:inputType="textPersonName"
+        android:hint="Organization email"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -68,13 +68,14 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="0dp"
         android:ems="10"
-        android:hint="Date"
+        android:hint="Select Date"
         android:inputType="textPersonName"
+        android:focusable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orgAddress"
+        app:layout_constraintTop_toBottomOf="@+id/orgEmail"
         app:layout_constraintVertical_bias="0.104" />
 
     <EditText
@@ -87,7 +88,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Hours"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

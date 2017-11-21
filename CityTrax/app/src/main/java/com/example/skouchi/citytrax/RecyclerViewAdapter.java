@@ -1,6 +1,7 @@
 package com.example.skouchi.citytrax;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,11 +29,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public TextView textView;
 
-        public ViewHolder(View v){
+        public ViewHolder(final View v){
 
             super(v);
 
             textView = (TextView) v.findViewById(R.id.textview1);
+
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    v.getContext().startActivity(new Intent(v.getContext(),VolunteerCreationPage.class));
+                }
+            });
 
         }
     }
