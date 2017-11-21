@@ -7,4 +7,5 @@
     <string name="hours_worked">Hours Worked</string>
     <string name="list">List</string>
     <string name="logo">logo</string>
+    <string name="empty_list_text">Please click on add button to add a volunteered place</string>
 </resources>
