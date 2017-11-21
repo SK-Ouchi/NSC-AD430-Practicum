@@ -36,6 +36,11 @@
             android:label="Opportunities"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".StopWatch"
+            android:label="StopWatch"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
