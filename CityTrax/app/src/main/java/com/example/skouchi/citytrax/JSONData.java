@@ -1,6 +1,7 @@
 package com.example.skouchi.citytrax;
 
 import android.content.Context;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 
 public class JSONData {
 
+    private static final String TAG = " JSONData";
     private String fileName = "data.json";
 
     public JSONData() {
@@ -22,9 +24,13 @@ public class JSONData {
 
     // Retrieve data from a json file in arraylist format
     public ArrayList<VolunteeredDetail> getJSONData(Context context) {
+        String mName = "getJSONData | "; // Method Name for Logging
+        Log.d(TAG,mName + "---------- START ----------");
+
         ArrayList<VolunteeredDetail> volunteeredList = new ArrayList<>();
         String jsonString = this.getJSON(context);
         if (jsonString != null ) {
+            Log.d(TAG,mName + "jsonString : Not Null");
             try {
                 JSONArray jsonArray = new JSONArray(jsonString);
                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -39,14 +45,30 @@ public class JSONData {
                 e.printStackTrace();
             }
         }
+        /* Start - getJSONData Logging */
+        String contents; // YES || NO , used in Logging
+        Log.d(TAG, mName + "volunteeredList - " + volunteeredList);
+        if (!(volunteeredList.isEmpty())) { // If list is not empty : true
+            Log.d(TAG, mName + "volunteeredList : NOT EMPTY");
+            contents = "YES";
+        } else {
+            Log.d(TAG, mName + "volunteeredList : EMPTY");
+            contents = "NO";
+
+        }
+        Log.d(TAG,mName + "Returning ArrayList : " + contents);
+        Log.d(TAG,mName + "----------- END -----------");
         return volunteeredList;
     }
 
     // Save JSON data to local file
     public void saveDataToFile(JSONObject jsonObject, Context context) {
+        String mName = "saveDataToFile | "; // Method Name for Logging
+        Log.d(TAG,mName + "---------- START ----------");
         JSONArray jsonArray = new JSONArray();
         String jsonString = this.getJSON(context);
         if (jsonString != null) {
+            Log.d(TAG,mName + "jsonString : Not Null");
             try {
                 jsonArray = new JSONArray(jsonString);
                 jsonArray.put(jsonObject);
@@ -54,34 +76,54 @@ public class JSONData {
                 e.printStackTrace();
             }
         } else {
+            Log.d(TAG,mName + "jsonString : Null");
             jsonArray.put(jsonObject);
         }
         this.saveJSON(context, jsonArray.toString());
+        Log.d(TAG,mName + "----------- END -----------");
     }
 
     // Save JSON data to local file
     public void saveJSON(Context context, String jsonData) {
+        String mName = "saveJSON | "; // Method Name for Logging
+        Log.d(TAG,mName + "---------- START ----------");
         try {
+            String filePath = context.getFilesDir().getPath() + "/" + fileName;
+            Log.d(TAG,mName + "filepath/name : " + filePath);
             FileWriter file = new FileWriter(context.getFilesDir().getPath() + "/" + fileName, false);
             file.write(jsonData);
             file.flush();
             file.close();
+            Log.d(TAG,mName + "| No Error | File " + fileName + " Saved |");
         } catch (IOException e) {
+            Log.d(TAG,mName + "| Error");
         }
+        Log.d(TAG,mName + "----------- END -----------");
     }
 
     // Retrieve data from a local json file
     public String getJSON(Context context) {
+        String mName = "getJSON | "; // Method Name for Logging
+        Log.d(TAG,mName + "---------- START ----------");
         try {
             File f = new File(context.getFilesDir().getPath() + "/" + fileName);
+            Log.d(TAG,mName + "filepath/name : " + context.getFilesDir().getPath() + "/" + fileName);
             //check if file exists
             FileInputStream is = new FileInputStream(f);
             int size = is.available();
+            if (size > 0) {
+                Log.d(TAG,mName + "File " + fileName + " | Has Contents : YES ");
+            } else {
+                Log.d(TAG,mName + "File " + fileName + " | Has Contents : NO");
+            }
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
+            Log.d(TAG,mName + "----------- END -----------");
             return new String(buffer);
         } catch (IOException e) {
+            Log.d(TAG,mName + "Error");
+            Log.d(TAG,mName + "----------- END -----------");
             return null;
         }
     }
