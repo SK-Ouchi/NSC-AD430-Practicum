@@ -19,4 +19,12 @@ public class Logs {
         //Log.d(TAG, mName + "Return : Null");
         return "Null";
     }
+    /* Print to console : TAG + method name + "---------- START ----------" */
+    public static void logStart(String tag, String mName) {
+        Log.d(tag,mName + "---------- START ----------");
+    }
+    /* Print to console : TAG + method name + "----------- END -----------" */
+    public static void logEnd(String tag, String mName) {
+        Log.d(tag,mName + "----------- END -----------");
+    }
 }

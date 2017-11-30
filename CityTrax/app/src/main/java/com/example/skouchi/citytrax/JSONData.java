@@ -25,7 +25,7 @@ public class JSONData {
     // Retrieve data from a json file in arraylist format
     public ArrayList<VolunteeredDetail> getJSONData(Context context) {
         String mName = "getJSONData | "; // Method Name for Logging
-        Log.d(TAG,mName + "---------- START ----------");
+        Logs.logStart(TAG, mName);
 
         ArrayList<VolunteeredDetail> volunteeredList = new ArrayList<>();
         String jsonString = this.getJSON(context);
@@ -57,14 +57,14 @@ public class JSONData {
 
         }
         Log.d(TAG,mName + "Returning ArrayList : " + contents);
-        Log.d(TAG,mName + "----------- END -----------");
+        Logs.logEnd(TAG, mName);
         return volunteeredList;
     }
 
     // Save JSON data to local file
     public void saveDataToFile(JSONObject jsonObject, Context context) {
         String mName = "saveDataToFile | "; // Method Name for Logging
-        Log.d(TAG,mName + "---------- START ----------");
+        Logs.logStart(TAG, mName);
         JSONArray jsonArray = new JSONArray();
         String jsonString = this.getJSON(context);
         if (jsonString != null) {
@@ -80,17 +80,17 @@ public class JSONData {
             jsonArray.put(jsonObject);
         }
         this.saveJSON(context, jsonArray.toString());
-        Log.d(TAG,mName + "----------- END -----------");
+        Logs.logEnd(TAG, mName);
     }
 
     // Save JSON data to local file
     public void saveJSON(Context context, String jsonData) {
         String mName = "saveJSON | "; // Method Name for Logging
-        Log.d(TAG,mName + "---------- START ----------");
+        Logs.logStart(TAG, mName);
         try {
             String filePath = context.getFilesDir().getPath() + "/" + fileName;
             Log.d(TAG,mName + "filepath/name : " + filePath);
-            FileWriter file = new FileWriter(context.getFilesDir().getPath() + "/" + fileName, false);
+            FileWriter file = new FileWriter(filePath, false);
             file.write(jsonData);
             file.flush();
             file.close();
@@ -98,32 +98,31 @@ public class JSONData {
         } catch (IOException e) {
             Log.d(TAG,mName + "| Error");
         }
-        Log.d(TAG,mName + "----------- END -----------");
+        Logs.logEnd(TAG, mName);
     }
 
     // Retrieve data from a local json file
     public String getJSON(Context context) {
         String mName = "getJSON | "; // Method Name for Logging
-        Log.d(TAG,mName + "---------- START ----------");
+        Logs.logStart(TAG, mName);
         try {
             File f = new File(context.getFilesDir().getPath() + "/" + fileName);
-            Log.d(TAG,mName + "filepath/name : " + context.getFilesDir().getPath() + "/" + fileName);
+            Log.d(TAG,mName + "filepath/name : " + f);
             //check if file exists
             FileInputStream is = new FileInputStream(f);
             int size = is.available();
             if (size > 0) {
                 Log.d(TAG,mName + "File " + fileName + " | Has Contents : YES ");
-            } else {
-                Log.d(TAG,mName + "File " + fileName + " | Has Contents : NO");
             }
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            Log.d(TAG,mName + "----------- END -----------");
+            Logs.logEnd(TAG, mName);
             return new String(buffer);
         } catch (IOException e) {
             Log.d(TAG,mName + "Error");
-            Log.d(TAG,mName + "----------- END -----------");
+            Log.d(TAG,mName + "File " + fileName + " | Has Contents : NO");
+            Logs.logEnd(TAG, mName);
             return null;
         }
     }
