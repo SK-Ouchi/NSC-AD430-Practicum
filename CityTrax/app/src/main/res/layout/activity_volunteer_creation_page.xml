@@ -119,15 +119,15 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
-        app:backgroundTint="@android:color/holo_green_light"
-        app:fabSize="mini"
+        app:backgroundTint="@android:color/holo_green_dark"
+        app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.896"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hoursWorked"
         app:layout_constraintVertical_bias="0.351"
-        app:srcCompat="@android:drawable/ic_menu_save"
+        app:srcCompat="@drawable/save"
 
         />
 
@@ -140,13 +140,31 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
-        app:backgroundTint="@android:color/holo_green_light"
-        app:fabSize="mini"
+        app:backgroundTint="@android:color/holo_green_dark"
+        app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hoursWorked"
         app:layout_constraintVertical_bias="0.351"
-        app:srcCompat="@drawable/homebutton" />
+        app:srcCompat="@drawable/home" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabStopwatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        app:backgroundTint="@android:color/holo_green_dark"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabSave"
+        app:layout_constraintStart_toEndOf="@+id/fabHome"
+        app:layout_constraintTop_toBottomOf="@+id/hoursWorked"
+        app:layout_constraintVertical_bias="0.355"
+        app:srcCompat="@android:drawable/ic_lock_idle_alarm" />
 </android.support.constraint.ConstraintLayout>

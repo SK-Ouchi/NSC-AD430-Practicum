@@ -18,6 +18,9 @@
         android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
+        android:tint="@android:color/background_dark"
+        app:backgroundTint="@android:color/holo_green_dark"
+        app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.024"
@@ -27,7 +30,7 @@
         app:srcCompat="?android:attr/homeAsUpIndicator" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -48,11 +51,11 @@
         app:layout_constraintVertical_bias="0.439" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button"
-        android:layout_alignBottom="@+id/button"
+        android:layout_alignBaseline="@+id/start"
+        android:layout_alignBottom="@+id/start"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -66,12 +69,12 @@
         app:layout_constraintVertical_bias="0.662" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/button2"
+        android:layout_alignTop="@+id/pause"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -85,29 +88,30 @@
         app:layout_constraintVertical_bias="0.662" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/save"
         android:layout_width="316dp"
         android:layout_height="47dp"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/start"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Save"
+        android:onClick="sendTime"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/pause"
         app:layout_constraintVertical_bias="0.187" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/time"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"

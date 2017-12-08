@@ -1,6 +1,10 @@
 package com.example.skouchi.citytrax;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -9,14 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.os.SystemClock;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.os.Handler;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
 
 public class StopWatch extends AppCompatActivity {
 
@@ -30,7 +29,11 @@ public class StopWatch extends AppCompatActivity {
 
     Handler handler;
 
-    int Seconds, Minutes, MilliSeconds ;
+    int Seconds, Minutes, MilliSeconds, Hours ;
+
+
+
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class StopWatch extends AppCompatActivity {
                         {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+//                                stopService(new Intent(getBaseContext(),MyService.class));
                                 finish();
                             }
 
@@ -68,11 +72,11 @@ public class StopWatch extends AppCompatActivity {
             /* initialize app */
         }
 
-        textView = (TextView)findViewById(R.id.textView);
-        start = (Button)findViewById(R.id.button);
-        pause = (Button)findViewById(R.id.button2);
-        reset = (Button)findViewById(R.id.button3);
-        save = (Button)findViewById(R.id.button4) ;
+        textView = (TextView)findViewById(R.id.time);
+        start = (Button)findViewById(R.id.start);
+        pause = (Button)findViewById(R.id.pause);
+        reset = (Button)findViewById(R.id.reset);
+        save = (Button)findViewById(R.id.save) ;
 
         handler = new Handler() ;
 
@@ -87,8 +91,13 @@ public class StopWatch extends AppCompatActivity {
                 reset.setEnabled(false);
                 start.setEnabled(false);
 
+               // intent = new Intent(StopWatch.this,MyService.class);
+
+
             }
         });
+
+
 
         pause.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +109,8 @@ public class StopWatch extends AppCompatActivity {
 
                 reset.setEnabled(true);
                 start.setEnabled(true);
+
+
 
             }
         });
@@ -118,8 +129,11 @@ public class StopWatch extends AppCompatActivity {
 
                 textView.setText("00:00:00");
 
+
+
             }
         });
+
 
     }
 
@@ -135,17 +149,47 @@ public class StopWatch extends AppCompatActivity {
 
             Minutes = Seconds / 60;
 
+            Hours   = Minutes / 60;
+
             Seconds = Seconds % 60;
 
             MilliSeconds = (int) (UpdateTime % 1000);
 
-            textView.setText("" + Minutes + ":"
-                    + String.format("%02d", Seconds) + ":"
-                    + String.format("%03d", MilliSeconds));
+            Minutes = Minutes % 60;
+
+            textView.setText("" + Hours + ":"
+                    + String.format("%02d", Minutes) + ":"
+                    +  String.format("%02d", Seconds));
 
             handler.postDelayed(this, 0);
         }
 
     };
+
+    private void updateUI(Intent intent) {
+        int time = intent.getIntExtra("time", 0);
+
+
+        textView.setText("" + Minutes + ":"
+                + String.format("%02d", Seconds));
+
+    }
+
+    public void sendTime(View view) {
+        Intent timeIntent = new Intent(StopWatch.this, VolunteerCreationPage.class);
+        TextView timeText = (TextView) findViewById(R.id.time);
+        String message = timeText.getText().toString();
+        timeIntent.putExtra("EXTRA_MESSAGE", message);
+        stopService(intent);
+        startActivity (timeIntent);
+
+    }
+
+//    @Override
+//    protected void onStop() {
+//        super.onStop();
+//        startService(intent);
+//
+//    }
 
 }
