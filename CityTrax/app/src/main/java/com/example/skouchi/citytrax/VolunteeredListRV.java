@@ -38,7 +38,6 @@ public class VolunteeredListRV extends RecyclerView.Adapter<VolunteeredListRV.Vi
     }
 
     @Override
-    //Change Colors here!
     public void onBindViewHolder(ViewHolder Vholder, final int position) {
         final String mName = "onBindViewHolder | "; // Method Name for Logging
         Logs.logStart(TAG, mName);
@@ -50,34 +49,6 @@ public class VolunteeredListRV extends RecyclerView.Adapter<VolunteeredListRV.Vi
 
         Vholder.hoursWorked.setText(volunteeredList.get(position).getHoursWorked());
 
-/* onClick listener for Edit Icon
-        Vholder.editVolDetailIcon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                Log.d(TAG, mName + "position: " + volunteeredList.get(position));
-                Log.d(TAG, "editVolDetailIcon Clicked | startActivity : <TBD> ");
-                //startActivity(new Intent(getApplicationContext(), VolunteerCreationPage.class));
-
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast.makeText(context, "editVolDetailIcon toast!", duration).show();
-                }
-            });
-*/
-/* onClick listener for Email Icon
-        Vholder.sendEmailIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, mName + "position: " + volunteeredList.get(position));
-                Log.d(TAG, "sendEmailIcon Clicked | startActivity : <TBD> ");
-                //startActivity(new Intent(getApplicationContext(), VolunteerCreationPage.class));
-
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast.makeText(context, "sendEmailIcon toast!", duration).show();
-            }
-        });
-*/
         Logs.logEnd(TAG, mName);
     }
 
@@ -97,16 +68,11 @@ public class VolunteeredListRV extends RecyclerView.Adapter<VolunteeredListRV.Vi
 
         public TextView date, orgName, hoursWorked;
 
-        //QuickContactBadge editVolDetailIcon, sendEmailIcon;
-
         public ViewHolder(View v){
             super(v);
             date = (TextView) v.findViewById(R.id.date_row);
             orgName = (TextView) v.findViewById(R.id.org_name_row);
             hoursWorked = (TextView) v.findViewById(R.id.hours_row);
-            //editVolDetailIcon = (QuickContactBadge) v.findViewById(R.id.editVolDetail);
-            //sendEmailIcon = (QuickContactBadge) v.findViewById(R.id.sendEmail);
-
         }
     }
 }
