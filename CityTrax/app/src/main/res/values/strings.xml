@@ -8,4 +8,5 @@
     <string name="list">Volunteered Places</string>
     <string name="logo">logo</string>
     <string name="empty_list_text">Please click on add button to add a volunteered place</string>
+    <string name="textHours">Hours</string>
 </resources>
