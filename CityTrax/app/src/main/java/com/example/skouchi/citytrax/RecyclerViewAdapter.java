@@ -60,11 +60,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(ViewHolder Vholder, int position){
 
         Vholder.textView.setText(values[position]);
-
-        Vholder.textView.setBackgroundColor(Color.CYAN);
-
-        Vholder.textView.setTextColor(Color.BLUE);
-
     }
 
     @Override
