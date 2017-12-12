@@ -36,6 +36,14 @@ public class Home extends AppCompatActivity {
             }
         });
         Logs.logEnd(TAG, mName);
+
+        FloatingActionButton fabSuggestedPlaces = (FloatingActionButton) findViewById(R.id.fab_suggested_places);
+        fabSuggestedPlaces.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), opportunities.class));
+            }
+        });
     }
 
     @Override
