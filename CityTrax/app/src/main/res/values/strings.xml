@@ -5,7 +5,7 @@
     <string name="date">Date</string>
     <string name="org_name">Org Name</string>
     <string name="hours_worked">Hours Worked</string>
-    <string name="list">List</string>
+    <string name="list">Volunteered Places</string>
     <string name="logo">logo</string>
     <string name="empty_list_text">Please click on add button to add a volunteered place</string>
 </resources>
