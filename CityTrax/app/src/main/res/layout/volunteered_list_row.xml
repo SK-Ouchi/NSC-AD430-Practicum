@@ -14,7 +14,8 @@
         android:hint="@string/date"
         app:layout_constraintEnd_toStartOf="@+id/org_name_row"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/colorBlack"/>
 
     <TextView
         android:id="@+id/org_name_row"
@@ -25,7 +26,8 @@
         android:hint="@string/org_name"
         app:layout_constraintEnd_toStartOf="@+id/hours_row"
         app:layout_constraintStart_toEndOf="@+id/date_row"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/colorBlack"/>
 
     <TextView
         android:id="@+id/hours_row"
@@ -36,5 +38,6 @@
         android:hint="@string/hours_worked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/org_name_row"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/colorBlack"/>
 </android.support.constraint.ConstraintLayout>
