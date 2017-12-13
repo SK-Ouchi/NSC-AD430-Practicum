@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
@@ -21,17 +20,15 @@ public class StopWatch extends AppCompatActivity {
 
     private static final String TAG = StopWatch.class.getSimpleName();
 
-    TextView textView ;
+    TextView textView;
 
-    Button start, pause, reset, save ;
+    Button start, pause, reset, save;
 
-    long MillisecondTime, StartTime, TimeBuff, UpdateTime = 0L ;
+    long MillisecondTime, StartTime, TimeBuff, UpdateTime = 0L;
 
     Handler handler;
 
-    int Seconds, Minutes, MilliSeconds, Hours ;
-
-
+    int Seconds, Minutes, MilliSeconds, Hours;
 
     Intent intent;
 
@@ -50,8 +47,7 @@ public class StopWatch extends AppCompatActivity {
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Closing Activity")
                         .setMessage("Are you sure you want to close this activity? Time will not be saved.")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener()
-                        {
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 //                                stopService(new Intent(getBaseContext(),MyService.class));
@@ -72,13 +68,13 @@ public class StopWatch extends AppCompatActivity {
             /* initialize app */
         }
 
-        textView = (TextView)findViewById(R.id.time);
-        start = (Button)findViewById(R.id.start);
-        pause = (Button)findViewById(R.id.pause);
-        reset = (Button)findViewById(R.id.reset);
-        save = (Button)findViewById(R.id.save) ;
+        textView = (TextView) findViewById(R.id.time);
+        start = (Button) findViewById(R.id.start);
+        pause = (Button) findViewById(R.id.pause);
+        reset = (Button) findViewById(R.id.reset);
+        save = (Button) findViewById(R.id.save);
 
-        handler = new Handler() ;
+        handler = new Handler();
 
 
         start.setOnClickListener(new View.OnClickListener() {
@@ -90,13 +86,11 @@ public class StopWatch extends AppCompatActivity {
 
                 reset.setEnabled(false);
                 start.setEnabled(false);
-
-               // intent = new Intent(StopWatch.this,MyService.class);
+                save.setEnabled(false);
 
 
             }
         });
-
 
 
         pause.setOnClickListener(new View.OnClickListener() {
@@ -109,7 +103,7 @@ public class StopWatch extends AppCompatActivity {
 
                 reset.setEnabled(true);
                 start.setEnabled(true);
-
+                save.setEnabled(true);
 
 
             }
@@ -119,16 +113,15 @@ public class StopWatch extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                MillisecondTime = 0L ;
-                StartTime = 0L ;
-                TimeBuff = 0L ;
-                UpdateTime = 0L ;
-                Seconds = 0 ;
-                Minutes = 0 ;
-                MilliSeconds = 0 ;
+                MillisecondTime = 0L;
+                StartTime = 0L;
+                TimeBuff = 0L;
+                UpdateTime = 0L;
+                Seconds = 0;
+                Minutes = 0;
+                MilliSeconds = 0;
 
                 textView.setText("00:00:00");
-
 
 
             }
@@ -149,7 +142,7 @@ public class StopWatch extends AppCompatActivity {
 
             Minutes = Seconds / 60;
 
-            Hours   = Minutes / 60;
+            Hours = Minutes / 60;
 
             Seconds = Seconds % 60;
 
@@ -159,37 +152,20 @@ public class StopWatch extends AppCompatActivity {
 
             textView.setText("" + Hours + ":"
                     + String.format("%02d", Minutes) + ":"
-                    +  String.format("%02d", Seconds));
+                    + String.format("%02d", Seconds));
 
             handler.postDelayed(this, 0);
         }
 
     };
 
-    private void updateUI(Intent intent) {
-        int time = intent.getIntExtra("time", 0);
-
-
-        textView.setText("" + Minutes + ":"
-                + String.format("%02d", Seconds));
-
-    }
-
     public void sendTime(View view) {
         Intent timeIntent = new Intent(StopWatch.this, VolunteerCreationPage.class);
         TextView timeText = (TextView) findViewById(R.id.time);
         String message = timeText.getText().toString();
         timeIntent.putExtra("EXTRA_MESSAGE", message);
-        stopService(intent);
-        startActivity (timeIntent);
+        startActivity(timeIntent);
 
     }
-
-//    @Override
-//    protected void onStop() {
-//        super.onStop();
-//        startService(intent);
-//
-//    }
-
 }
+

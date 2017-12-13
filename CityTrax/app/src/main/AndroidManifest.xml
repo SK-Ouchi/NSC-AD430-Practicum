@@ -39,7 +39,6 @@
             android:label="StopWatch"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <service android:name=".MyService"/>
     </application>
 
 </manifest>

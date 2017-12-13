@@ -12,7 +12,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -59,7 +58,6 @@ public class VolunteerCreationPage extends AppCompatActivity {
             }
         });
 
-
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             String message = bundle.getString("EXTRA_MESSAGE");
@@ -68,7 +66,6 @@ public class VolunteerCreationPage extends AppCompatActivity {
             EditText hoursText = (EditText) findViewById(R.id.hoursWorked);
             hoursText.setText(message);
         }
-
 
         String jsonString = jsonData.getJSON(getApplicationContext());
         if (jsonString != null ) {
@@ -111,12 +108,11 @@ public class VolunteerCreationPage extends AppCompatActivity {
             }
         });
 
-        //FAB StopWatch
-        FloatingActionButton fabStopwatch = (FloatingActionButton) findViewById(R.id.fabStopwatch);
-        fabStopwatch.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fabStopWatch = (FloatingActionButton) findViewById(R.id.fabStopWatch);
+        fabStopWatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               startActivity(new Intent(getApplicationContext(), StopWatch.class));
+                startActivity(new Intent(getApplicationContext(), StopWatch.class));
             }
         });
     }

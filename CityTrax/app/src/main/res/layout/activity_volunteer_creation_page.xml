@@ -119,7 +119,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
-        app:backgroundTint="@android:color/holo_green_dark"
+        app:backgroundTint="@android:color/holo_green_light"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.896"
@@ -140,7 +140,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
-        app:backgroundTint="@android:color/holo_green_dark"
+        app:backgroundTint="@android:color/holo_green_light"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.103"
@@ -151,7 +151,7 @@
         app:srcCompat="@drawable/home" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabStopwatch"
+        android:id="@+id/fabStopWatch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -159,12 +159,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
-        app:backgroundTint="@android:color/holo_green_dark"
+        app:backgroundTint="@android:color/holo_green_light"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/fabSave"
         app:layout_constraintStart_toEndOf="@+id/fabHome"
         app:layout_constraintTop_toBottomOf="@+id/hoursWorked"
-        app:layout_constraintVertical_bias="0.355"
+        app:layout_constraintVertical_bias="0.35"
         app:srcCompat="@android:drawable/ic_lock_idle_alarm" />
 </android.support.constraint.ConstraintLayout>

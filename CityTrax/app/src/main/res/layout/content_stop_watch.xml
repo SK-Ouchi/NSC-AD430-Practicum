@@ -19,7 +19,7 @@
         android:clickable="true"
         android:focusable="true"
         android:tint="@android:color/background_dark"
-        app:backgroundTint="@android:color/holo_green_dark"
+        app:backgroundTint="@android:color/holo_green_light"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
